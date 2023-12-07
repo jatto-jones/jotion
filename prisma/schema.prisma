@@ -1,0 +1,15 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// PlanetScale db password: pscale_pw_a1Pn3j2gXuk7bLyJNt6eQn4iRaIDglplLWxdyVRLXnn
+// db username: jqn6uuq66jcm44694jio
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
