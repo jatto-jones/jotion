@@ -38,8 +38,12 @@ const page = () => {
   const { isSubmitting, isValid } = form.formState;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try{
-      const response = await axios.post('/api/course', values)
+      const response = await axios.post('/api/courses', values)
       router.push(`/teacher/courses/${response.data.id}`)
+      toast({
+        title: 'New Course Created!',
+        variant: 'default'
+      })
     }catch{
       toast({
         title: 'Something went wrong',

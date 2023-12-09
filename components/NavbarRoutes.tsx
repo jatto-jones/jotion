@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import User from "./User";
 import { LogOut } from "lucide-react";
 import { Button } from "./ui/Button";
 import Link from "next/link";
+import { UserButton } from "@clerk/clerk-react";
 
 const NavbarRoutes = () => {
   const pathname = usePathname();
@@ -28,10 +28,7 @@ const NavbarRoutes = () => {
           </Button>
         </Link>
       )}
-      {/* <User /> */}
-      <div>
-        <Button variant="secondary" size='sm'>J</Button>
-      </div>
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 };
