@@ -5,7 +5,7 @@ import { LayoutDashboard } from "lucide-react";
 import { redirect } from "next/navigation";
 import TitleForm from "./_components/TitleForm";
 import DescriptionForm from "./_components/DescriptionForm";
-import ImageForm from "./_components/ImageForm";
+import { ImageForm } from "./_components/ImageForm";
 
 const page = async ({
   params,
@@ -24,6 +24,12 @@ const page = async ({
       id: courseId,
     },
   });
+
+  const categories = await db.category.findMany({
+    orderBy: {
+      name: 'asc'
+    }
+  })
 
   if (!course) redirect("/");
 
