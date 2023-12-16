@@ -66,6 +66,10 @@ const ChaptersForm = ({ initialData, courseId }: PageProps) => {
     }
   };
 
+  const onEdit = (id: string) => {
+    router.push(`/teacher/courses/${courseId}/chapters/${id}`)
+  }
+
   const onReorder = async(updateData :{id:string, position:number}[]) => {
     try {
       setIsUpdating(true)
@@ -146,7 +150,7 @@ const ChaptersForm = ({ initialData, courseId }: PageProps) => {
         )}>
           {!initialData.chapters.length && 'No chapters'}
           <ChaptersList
-            onEdit={()=>{}}
+            onEdit={onEdit}
             onReorder={onReorder}
             items={initialData.chapters || []}
            />
